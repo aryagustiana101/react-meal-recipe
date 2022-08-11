@@ -1,3 +1,14 @@
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import { Routes, Route } from "react-router-dom";
+
 export default function App() {
-  return <h1 class="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
 }
