@@ -23,8 +23,8 @@ export default function Popular() {
   }, []);
 
   return (
-    <div className="mb-10">
-      <h3 className="font-bold text-2xl mb-3">Popular Picks</h3>
+    <div className="mb-8">
+      <h3 className="font-bold text-2xl mb-3 text-gray-800">Popular Picks</h3>
       <Splide
         options={{
           perPage: 2,

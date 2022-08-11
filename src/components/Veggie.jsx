@@ -23,8 +23,8 @@ export default function Veggie() {
   }, []);
 
   return (
-    <div className="mb-10 mx-0">
-      <h3 className="font-bold text-2xl mb-3">Vegetarian Picks</h3>
+    <div className="mb-8">
+      <h3 className="font-bold text-2xl mb-3 text-gray-800">Vegetarian Picks</h3>
       <Splide
         options={{
           perPage: 3,
