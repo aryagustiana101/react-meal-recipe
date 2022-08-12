@@ -32,17 +32,15 @@ export default function Cuisine() {
   }, [category]);
 
   return (
-    <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }}>
-      <div className="grid grid-cols-2 place-items-center md:grid-cols-3 gap-6">
-        {cuisines.map((cuisine) => (
-          <div key={cuisine.id}>
-            <Link to={`/recipe/${cuisine.id}`} className="no-underline text-gray-800 hover:text-gray-800">
-              <img src={cuisine.image} alt={cuisine.title} className="w-full rounded-3xl" />
-              <h4 className="text-center p-3 font-semibold">{cuisine.title}</h4>
-            </Link>
-          </div>
-        ))}
-      </div>
+    <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }} className="grid grid-cols-2 place-items-center md:grid-cols-3 gap-6">
+      {cuisines.map((cuisine) => (
+        <div key={cuisine.id}>
+          <Link to={`/recipe/${cuisine.id}`} className="no-underline text-gray-800 hover:text-gray-800">
+            <img src={cuisine.image} alt={cuisine.title} className="w-full rounded-3xl" />
+            <h4 className="text-center p-3 font-semibold">{cuisine.title}</h4>
+          </Link>
+        </div>
+      ))}
     </motion.div>
   );
 }
