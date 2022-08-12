@@ -2,6 +2,7 @@ import "@splidejs/react-splide/css";
 import { useEffect, useState } from "react";
 import { apiUrl, apiKey } from "../config/api.js";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Link } from "react-router-dom";
 
 export default function Veggie() {
   const [veggie, setVeggie] = useState([]);
@@ -44,11 +45,13 @@ export default function Veggie() {
         {veggie.map((recipe) => {
           return (
             <SplideSlide key={recipe.id}>
-              <div className="min-h-[10rem] rounded-3xl overflow-hidden relative mb-10">
-                <p className="p-3 absolute z-10 left-1/2 bottom-0 -translate-y-1/2 -translate-x-1/2 text-white w-full text-center font-semibold text-base h-1/2 flex justify-center items-center">{recipe.title}</p>
-                <img src={recipe.image} alt={recipe.title} className="rounded-3xl absolute left-0 w-full h-full object-cover" />
-                <div className="z-[3] absolute w-full h-full bg-gradient-to-b from-black/0 to-black/50"></div>
-              </div>
+              <Link to={`/recipe/${recipe.id}`}>
+                <div className="min-h-[10rem] rounded-3xl overflow-hidden relative mb-10">
+                  <p className="p-3 absolute z-10 left-1/2 bottom-0 -translate-y-1/2 -translate-x-1/2 text-white w-full text-center font-semibold text-base h-1/2 flex justify-center items-center">{recipe.title}</p>
+                  <img src={recipe.image} alt={recipe.title} className="rounded-3xl absolute left-0 w-full h-full object-cover" />
+                  <div className="z-[3] absolute w-full h-full bg-gradient-to-b from-black/0 to-black/50"></div>
+                </div>
+              </Link>
             </SplideSlide>
           );
         })}

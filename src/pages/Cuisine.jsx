@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { apiUrl, apiKey } from "../config/api.js";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 export default function Cuisine() {
   const { category } = useParams();
@@ -31,15 +32,17 @@ export default function Cuisine() {
   }, [category]);
 
   return (
-    <div>
+    <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.8 }}>
       <div className="grid grid-cols-2 place-items-center md:grid-cols-3 gap-6">
         {cuisines.map((cuisine) => (
           <div key={cuisine.id}>
-            <img src={cuisine.image} alt={cuisine.title} className="w-full rounded-3xl" />
-            <h4 className="text-center p-3 font-semibold">{cuisine.title}</h4>
+            <Link to={`/recipe/${cuisine.id}`} className="no-underline text-gray-800 hover:text-gray-800">
+              <img src={cuisine.image} alt={cuisine.title} className="w-full rounded-3xl" />
+              <h4 className="text-center p-3 font-semibold">{cuisine.title}</h4>
+            </Link>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

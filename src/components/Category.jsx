@@ -38,7 +38,9 @@ export default function Category() {
         <Link
           key={index}
           to={category.path}
-          className={`flex flex-col justify-center items-center rounded-full mx-1 md:mr-8 w-20 h-20 ${location.pathname == category.path ? "bg-gradient-to-r from-cyan-400 to-blue-500" : "bg-gradient-to-r from-slate-400 to-stone-500"}`}
+          className={`flex flex-col justify-center items-center rounded-full no-underline mx-1 md:mr-8 w-20 h-20 ${
+            location.pathname == category.path ? "bg-gradient-to-r from-cyan-400 to-blue-500" : "bg-gradient-to-r from-slate-400 to-stone-500"
+          }`}
         >
           {category.icon}
           <h4 className="text-xs font-semibold text-white">{category.name}</h4>

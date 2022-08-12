@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { apiUrl, apiKey } from "../config/api.js";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate, Link } from "react-router-dom";
 
 export default function Result() {
   const [results, setResults] = useState([]);
@@ -30,8 +30,10 @@ export default function Result() {
       {results.length > 0 ? (
         results.map((result) => (
           <div key={result.id}>
-            <img src={result.image} alt={result.title} className="w-full rounded-3xl" />
-            <h4 className="text-center p-3 font-semibold">{result.title}</h4>
+            <Link to={`/recipe/${result.id}`} className="no-underline text-gray-800 hover:text-gray-800">
+              <img src={result.image} alt={result.title} className="w-full rounded-3xl" />
+              <h4 className="text-center p-3 font-semibold">{result.title}</h4>
+            </Link>
           </div>
         ))
       ) : (

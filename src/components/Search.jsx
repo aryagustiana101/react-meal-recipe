@@ -36,7 +36,9 @@ export default function Search() {
         pathname: "/search",
         search: `?keyword=${keyword}`,
       });
-    } else {
+    }
+
+    if (!keyword && match) {
       navigate("/");
     }
   }, [keyword]);
