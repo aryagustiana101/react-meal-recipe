@@ -15,11 +15,11 @@ import { AnimatePresence } from "framer-motion";
 export default function App() {
   const location = useLocation();
   return (
-    <AnimatePresence exitBeforeEnter>
-      <div className={!useMatch("/not-found") ? `mx-4 md:mx-[20%]` : ""}>
-        {!useMatch("/not-found") ? <Navbar /> : ""}
-        {!useMatch("/not-found") ? <Search /> : ""}
-        {!useMatch("/not-found") ? <Category /> : ""}
+    <div className={!useMatch("/not-found") ? `mx-4 md:mx-[20%]` : ""}>
+      {!useMatch("/not-found") ? <Navbar /> : ""}
+      {!useMatch("/not-found") ? <Search /> : ""}
+      {!useMatch("/not-found") ? <Category /> : ""}
+      <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/search" element={<Result />} />
@@ -28,8 +28,8 @@ export default function App() {
           <Route exact path="/cuisine/:category" element={<Cuisine />} />
           <Route path="*" element={<HandleNotFound />} />
         </Routes>
-        {!useMatch("/not-found") ? <Footer /> : ""}
-      </div>
-    </AnimatePresence>
+      </AnimatePresence>
+      {!useMatch("/not-found") ? <Footer /> : ""}
+    </div>
   );
 }
