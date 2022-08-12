@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import Category from "../components/Category";
 import { apiUrl, apiKey } from "../config/api.js";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -33,8 +31,7 @@ export default function Cuisine() {
   }, [category]);
 
   return (
-    <div className="mx-4 md:mx-[20%]">
-      <Category />
+    <div>
       <div className="grid grid-cols-2 place-items-center md:grid-cols-3 gap-6">
         {cuisines.map((cuisine) => (
           <div key={cuisine.id}>
